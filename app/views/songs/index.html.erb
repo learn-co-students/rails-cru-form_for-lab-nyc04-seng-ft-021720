@@ -1,0 +1,8 @@
+<h3><%= link_to 'Create Song', new_song_path %>
+
+<% Song.all.each do |s| %>
+  <h3><%= s.name %></h3>
+  <%= link_to s.artist.name, artist_path(s.artist) if s.artist %><br>
+  <%= link_to s.genre.name, genre_path(s.genre) if s.genre %><br>
+  <%= link_to 'Edit Song', edit_song_path(s) %>
+<% end %>
